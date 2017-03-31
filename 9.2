@@ -1,0 +1,68 @@
+
+
+LOAD
+To Load the data from the
+file system (local/HDFS) into a relation.
+
+ a = load
+'/hadoopdata/pig/A.txt' using PigStorage(',') as (a1:int, a2:int, a3:int);
+
+ 
+
+STORE
+
+To save a relation to the
+file system (local/HDFS).
+
+ STORE l INTO '/pigoutput';
+
+ 
+
+DUMP
+
+To print the contents of a
+relation on the console.
+
+Dump a ;
+
+FOREACH
+
+To generate data
+transformations based on columns of data.
+
+l = FOREACH c GENERATE a1, a2, a2*a3;
+
+ 
+
+FILTER
+
+To remove unwanted rows
+from a relation.
+
+f = FILTER c by $1 > 3;
+
+ 
+
+GROUP BY 
+
+To group the data in a
+single relation.
+
+g = GROUP c by $2;
+g = GROUP c by ($0,$1); 
+h = GROUP c ALL;
+
+ORDER BY 
+
+To arrange a relation in a
+sorted order based on one or more fields (ascending or descending).
+
+f = order c by a1 desc ;
+
+ DESCRIBE
+
+To describe the schema of
+a relation.
+
+describe f;
+
